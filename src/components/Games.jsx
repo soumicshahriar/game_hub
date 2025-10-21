@@ -1,4 +1,4 @@
-import React from "react";
+import { IoGameController } from "react-icons/io5";
 import GameCard from "./GameCard";
 import { useLoaderData } from "react-router";
 
@@ -7,7 +7,7 @@ const Games = () => {
 
   return (
     <div className="mt-20">
-      <h2 className="text-3xl font-bold  mb-4 text-center">
+      <h2 className="text-xl lg:text-3xl font-bold  mb-4 text-center">
         🎮 All <span className="text-[#ffd166]">Games</span>
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

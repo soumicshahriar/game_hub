@@ -1,9 +1,8 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules"; // ✅ import both
+import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation"; // ✅ also import navigation styles
+import "swiper/css/navigation";
 
 const Banner = ({ games }) => {
   return (
@@ -11,7 +10,7 @@ const Banner = ({ games }) => {
       <Swiper
         pagination={{ type: "fraction" }}
         navigation={true}
-        modules={[Pagination, Navigation]} // ✅ both modules included
+        modules={[Pagination, Navigation]}
         className="rounded-xl overflow-hidden"
       >
         {games.slice(0, 3).map((game) => (

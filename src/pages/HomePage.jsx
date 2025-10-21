@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Banner from "../components/Banner";
 import PopularGames from "../components/PopularGames";
-import Games from "../components/Games";
+import Newsletter from "../components/Newsletter";
 
 const HomePage = () => {
   const [games, setGames] = useState([]);
@@ -18,7 +18,7 @@ const HomePage = () => {
     <div>
       {games.length > 0 && <Banner games={games} />}
       {games.length > 0 && <PopularGames games={games} />}
-      {games.length > 0 && <Games games={games} />}
+      <Newsletter></Newsletter>
     </div>
   );
 };

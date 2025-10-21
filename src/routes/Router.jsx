@@ -3,6 +3,7 @@ import RootLayout from "../layouts/RootLayout";
 import HomePage from "../pages/HomePage";
 import GameDetails from "../components/GameDetails";
 import Games from "../components/Games";
+import Recommended from "../components/Recommended";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ export const router = createBrowserRouter([
       {
         path: "/game/:id",
         element: <GameDetails></GameDetails>,
+      },
+      {
+        path: "/recommended-games",
+        Component: Recommended,
+        loader: () => fetch("/game.json"),
       },
     ],
   },
