@@ -1,0 +1,252 @@
+[
+  {
+    "id": "1",
+    "title": "Player Unknown's Battlegrounds: PUBG",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/578080/header.jpg",
+    "category": "FPS",
+    "downloadLink": "https://www.pubgmobile.com/en-US/home.shtml",
+    "description": "PUBG Mobile is a fast-paced battle royale game where players fight for survival, strategy, and victory on dynamic maps.",
+    "ratings": "4.5",
+    "developer": "Krafton"
+  },
+  {
+    "id": "2",
+    "title": "Hollow Knight",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg",
+    "category": "Adventure",
+    "downloadLink": "https://store.steampowered.com/app/367520/Hollow_Knight/",
+    "description": "Descend into a dark, hand-drawn world of insects and heroes. Explore twisting caverns and battle challenging foes in this beautiful action-adventure game.",
+    "ratings": "4.8",
+    "developer": "Team Cherry"
+  },
+  {
+    "id": "3",
+    "title": "Celeste",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/504230/header.jpg",
+    "category": "Platformer",
+    "downloadLink": "https://store.steampowered.com/app/504230/Celeste/",
+    "description": "Help Madeline survive her inner demons on her journey to the top of Celeste Mountain in this touching, challenging platformer.",
+    "ratings": "4.9",
+    "developer": "Maddy Makes Games"
+  },
+  {
+    "id": "4",
+    "title": "Stardew Valley",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/413150/header.jpg",
+    "category": "Simulation",
+    "downloadLink": "https://store.steampowered.com/app/413150/Stardew_Valley/",
+    "description": "Build the farm of your dreams, raise animals, grow crops, and form friendships in this relaxing farming RPG.",
+    "ratings": "4.8",
+    "developer": "ConcernedApe"
+  },
+  {
+    "id": "5",
+    "title": "Among Us",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg",
+    "category": "Party",
+    "downloadLink": "https://innersloth.com/gameAmongUs.php",
+    "description": "Work together with your crewmates to complete tasks... but beware of impostors trying to sabotage and eliminate everyone!",
+    "ratings": "4.3",
+    "developer": "Innersloth"
+  },
+  {
+    "id": "6",
+    "title": "Hades",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/header.jpg",
+    "category": "Action RPG",
+    "downloadLink": "https://store.steampowered.com/app/1145360/Hades/",
+    "description": "Battle out of hell in this rogue-like dungeon crawler, where every escape attempt strengthens your resolve and your story.",
+    "ratings": "4.9",
+    "developer": "Supergiant Games"
+  },
+  {
+    "id": "7",
+    "title": "Cuphead",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/268910/header.jpg",
+    "category": "Run and Gun",
+    "downloadLink": "https://store.steampowered.com/app/268910/Cuphead/",
+    "description": "A classic run and gun game inspired by cartoons of the 1930s, featuring challenging bosses and gorgeous hand-drawn visuals.",
+    "ratings": "4.7",
+    "developer": "Studio MDHR"
+  },
+  {
+    "id": "8",
+    "title": "Dead Cells",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/588650/header.jpg",
+    "category": "Roguelike",
+    "downloadLink": "https://store.steampowered.com/app/588650/Dead_Cells/",
+    "description": "Explore a constantly evolving castle in this roguelike metroidvania where no two runs are the same.",
+    "ratings": "4.6",
+    "developer": "Motion Twin"
+  },
+  {
+    "id": "9",
+    "title": "Terraria",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg",
+    "category": "Sandbox",
+    "downloadLink": "https://store.steampowered.com/app/105600/Terraria/",
+    "description": "Dig, fight, explore, and build! Nothing is impossible in this action-packed sandbox adventure game.",
+    "ratings": "4.7",
+    "developer": "Re-Logic"
+  },
+  {
+    "id": "10",
+    "title": "Ori and the Will of the Wisps",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/1057090/header.jpg",
+    "category": "Adventure",
+    "downloadLink": "https://store.steampowered.com/app/1057090/Ori_and_the_Will_of_the_Wisps/",
+    "description": "Embark on a new journey of discovery through a vast and exotic world, mastering new abilities and facing powerful foes.",
+    "ratings": "4.9",
+    "developer": "Moon Studios"
+  },
+  {
+    "id": "11",
+    "title": "Slay the Spire",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/646570/header.jpg",
+    "category": "Card Battler",
+    "downloadLink": "https://store.steampowered.com/app/646570/Slay_the_Spire/",
+    "description": "Build a unique deck, encounter bizarre creatures, and discover relics of immense power in this deck-building roguelike adventure.",
+    "ratings": "4.7",
+    "developer": "MegaCrit"
+  },
+  {
+    "id": "12",
+    "title": "Spiritfarer",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/972660/header.jpg",
+    "category": "Simulation",
+    "downloadLink": "https://store.steampowered.com/app/972660/Spiritfarer/",
+    "description": "A cozy management game about dying. Build a boat, explore the world, and befriend and care for spirits before releasing them into the afterlife.",
+    "ratings": "4.8",
+    "developer": "Thunder Lotus Games"
+  },
+  {
+    "id": "13",
+    "title": "Gris",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/683320/header.jpg",
+    "category": "Platformer",
+    "downloadLink": "https://store.steampowered.com/app/683320/GRIS/",
+    "description": "A serene and evocative experience, free of danger, frustration, or death. Explore a world brought to life with delicate art and animation.",
+    "ratings": "4.9",
+    "developer": "Nomada Studio"
+  },
+  {
+    "id": "14",
+    "title": "Valheim",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/892970/header.jpg",
+    "category": "Survival",
+    "downloadLink": "https://store.steampowered.com/app/892970/Valheim/",
+    "description": "A brutal exploration and survival game for 1–10 players set in a procedurally generated world inspired by Norse mythology.",
+    "ratings": "4.6",
+    "developer": "Iron Gate AB"
+  },
+  {
+    "id": "15",
+    "title": "Minecraft",
+    "coverPhoto": "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png",
+    "category": "Sandbox",
+    "downloadLink": "https://www.minecraft.net/",
+    "description": "Build, explore, and survive in an infinite blocky world full of creativity and adventure.",
+    "ratings": "4.8",
+    "developer": "Mojang Studios"
+  },
+  {
+    "id": "16",
+    "title": "No Man’s Sky",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/275850/header.jpg",
+    "category": "Exploration",
+    "downloadLink": "https://store.steampowered.com/app/275850/No_Mans_Sky/",
+    "description": "Explore an infinite, procedurally generated universe filled with alien worlds, creatures, and mysteries.",
+    "ratings": "4.2",
+    "developer": "Hello Games"
+  },
+  {
+    "id": "17",
+    "title": "The Long Dark",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/305620/header.jpg",
+    "category": "Survival",
+    "downloadLink": "https://store.steampowered.com/app/305620/The_Long_Dark/",
+    "description": "Explore a frozen wilderness after a geomagnetic disaster in this thoughtful, exploration-focused survival experience.",
+    "ratings": "4.5",
+    "developer": "Hinterland Studio"
+  },
+  {
+    "id": "18",
+    "title": "Echo Drift",
+    "coverPhoto": "https://picsum.photos/id/1015/600/300",
+    "category": "Sci-Fi",
+    "downloadLink": "https://example.com/echodrift",
+    "description": "Navigate time loops and cosmic storms in a narrative-driven sci-fi adventure through fractured realities.",
+    "ratings": "4.4",
+    "developer": "Nebula Forge"
+  },
+  {
+    "id": "19",
+    "title": "Shadow Circuit",
+    "coverPhoto": "https://picsum.photos/id/1040/600/300",
+    "category": "Racing",
+    "downloadLink": "https://example.com/shadowcircuit",
+    "description": "High-octane racing meets cyberpunk cityscapes in this neon-fueled battle for glory on the streets of Neo-Tokyo.",
+    "ratings": "4.1",
+    "developer": "Nova Byte"
+  },
+  {
+    "id": "20",
+    "title": "Moonlight Sonata",
+    "coverPhoto": "https://picsum.photos/id/1033/600/300",
+    "category": "Narrative",
+    "downloadLink": "https://example.com/moonlightsonata",
+    "description": "A poetic storytelling experience about memory, music, and love — told through beautiful watercolor visuals and piano soundscapes.",
+    "ratings": "4.9",
+    "developer": "Silent Wave Studio"
+  },
+  {
+    "id": "21",
+    "title": "Apex Legends",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg",
+    "category": "Battle Royale",
+    "downloadLink": "https://www.ea.com/games/apex-legends",
+    "description": "A free-to-play hero shooter set in the Apex Games, where Legends with unique abilities compete for glory.",
+    "ratings": "4.4",
+    "developer": "Respawn Entertainment"
+  },
+  {
+    "id": "22",
+    "title": "Subnautica",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/264710/header.jpg",
+    "category": "Survival",
+    "downloadLink": "https://store.steampowered.com/app/264710/Subnautica/",
+    "description": "Dive into an alien underwater world full of wonder and danger, crafting gear and exploring deep-sea mysteries.",
+    "ratings": "4.8",
+    "developer": "Unknown Worlds Entertainment"
+  },
+  {
+    "id": "23",
+    "title": "Skyforge Realms",
+    "coverPhoto": "https://picsum.photos/id/1062/600/300",
+    "category": "MMORPG",
+    "downloadLink": "https://example.com/skyforgerealms",
+    "description": "Ascend to godhood in this fantasy MMO where players shape worlds, form alliances, and challenge the heavens.",
+    "ratings": "4.2",
+    "developer": "Arcane Loop"
+  },
+  {
+    "id": "24",
+    "title": "Neon Abyss",
+    "coverPhoto": "https://cdn.cloudflare.steamstatic.com/steam/apps/788100/header.jpg",
+    "category": "Action",
+    "downloadLink": "https://store.steampowered.com/app/788100/Neon_Abyss/",
+    "description": "Run and gun your way through procedurally generated dungeons in this vibrant, chaotic roguelite shooter.",
+    "ratings": "4.6",
+    "developer": "Veewo Games"
+  },
+  {
+    "id": "25",
+    "title": "Project Echoes",
+    "coverPhoto": "https://picsum.photos/id/1024/600/300",
+    "category": "Puzzle",
+    "downloadLink": "https://example.com/projectechoes",
+    "description": "Solve intricate sound-based puzzles that blend music, logic, and memory in a surreal dreamlike environment.",
+    "ratings": "4.5",
+    "developer": "Lunar Prism Studio"
+  }
+]
