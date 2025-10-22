@@ -1,15 +1,19 @@
 import { motion } from "motion/react";
-import { Link, useNavigate } from "react-router";
-import { use, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
+import { use, useRef, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
-  const { logInUser } = use(AuthContext);
+  const { logInUser, googleLogInUser } = use(AuthContext);
   const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const emailRef = useRef(null);
+
+  const from = location.state?.from?.pathname || "/";
 
   //   handle login
   const handleLogIn = (e) => {
@@ -21,15 +25,33 @@ const Login = () => {
     // reset error
     setError("");
     logInUser(email, password)
-      .then((result) => {
-        const user = result.user;
+      .then(() => {
+        // const user = result.user;
         // console.log(user);
-        navigate("/");
+
+        navigate(from, { replace: true });
       })
       .catch(() => {
         setError("Please provide your valid email and password");
       });
     console.log({ email, password });
+  };
+
+  //   handleGoogleLogIn
+  const handleGoogleLogIn = () => {
+    googleLogInUser()
+      .then(() => {
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error);
+      });
+  };
+
+  const handleForgetPassword = () => {
+    const email = emailRef.current.value;
+    navigate("/forget-password", { state: { email } });
+    
   };
 
   return (
@@ -60,6 +82,7 @@ const Login = () => {
             <input
               type="email"
               name="email"
+              ref={emailRef}
               placeholder="you@example.com"
               required
               className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-xs md:text-lg"
@@ -78,7 +101,7 @@ const Login = () => {
             <button
               type="button"
               onClick={() => setShowPass(!showPass)}
-              className="absolute right-3 top-8 text-white/70"
+              className="absolute right-3 top-10 text-white/70"
             >
               {showPass ? <FaEyeSlash /> : <FaEye />}
             </button>
@@ -99,10 +122,21 @@ const Login = () => {
           <div className="flex-1 h-[1px] bg-white/30" />
         </div>
 
+        {/* forget Password */}
+        <div className="my-5 text-center text-teal-300">
+          <button
+            onClick={handleForgetPassword}
+            className="text-teal-300 font-semibold hover:underline"
+          >
+            Forget Password
+          </button>
+        </div>
+
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="w-full flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 py-2 rounded-lg text-white font-semibold transition text-xs md:text-lg"
+          onClick={handleGoogleLogIn}
         >
           <FaGoogle /> Continue with Google
         </motion.button>

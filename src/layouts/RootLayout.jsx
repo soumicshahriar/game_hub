@@ -3,6 +3,11 @@ import Navbar from "../sharedPages/Navbar";
 import ScrollToTop from "../routes/ScrollToTop";
 
 const RootLayout = () => {
+  // const { loading } = use(AuthContext);
+  // if (loading) {
+  //   return <MotionLoader></MotionLoader>;
+  // }
+
   return (
     <>
       <ScrollToTop />

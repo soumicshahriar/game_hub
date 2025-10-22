@@ -26,7 +26,7 @@ const PopularGames = ({ games }) => {
               key={game.id}
               variants={cardVariants}
               initial="hidden"
-              animate="show"
+              whileInView="show"
             >
               <GameCard game={game} />
             </motion.div>
@@ -50,7 +50,7 @@ const PopularGames = ({ games }) => {
               key={game.id}
               variants={cardVariants}
               initial="hidden"
-              animate="show"
+              whileInView="show"
             >
               <GameCard game={game} />
             </motion.div>

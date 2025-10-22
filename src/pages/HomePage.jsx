@@ -3,10 +3,12 @@ import Banner from "../components/Banner";
 import PopularGames from "../components/PopularGames";
 import Newsletter from "../components/Newsletter";
 import { AuthContext } from "../context/AuthContext";
+import useTitle from "../utils/useTitle";
 
 const HomePage = () => {
+  useTitle("Home");
   const { user } = use(AuthContext);
-  console.log(user);
+  // console.log(user);
   const [games, setGames] = useState([]);
 
   useEffect(() => {

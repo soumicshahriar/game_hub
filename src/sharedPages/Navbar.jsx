@@ -89,7 +89,7 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <Link to="/profile">
+            <Link to="/my-profile">
               <img
                 src={
                   user.photoURL || "https://i.ibb.co/2nYVQbR/default-avatar.png"
@@ -156,14 +156,14 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <Link to="/profile" onClick={() => setIsOpen(false)}>
+                  <Link to="/my-profile" onClick={() => setIsOpen(false)}>
                     <img
                       src={
                         user.photoURL ||
                         "https://i.ibb.co/2nYVQbR/default-avatar.png"
                       }
                       alt="Profile"
-                      className="w-8 h-8 rounded-full border-2 border-[#ffd166] mx-auto"
+                      className="w-12 h-12 rounded-full border-2 border-[#ffd166] mx-auto"
                     />
                   </Link>
                   <button

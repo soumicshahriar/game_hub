@@ -2,8 +2,10 @@ import GameCard from "./GameCard";
 import { useLoaderData } from "react-router";
 import { motion } from "motion/react";
 import { cardVariants, containerVariants } from "../motion/gamesMotion";
+import useTitle from "../utils/useTitle";
 
 const Games = () => {
+  useTitle("Games");
   const games = useLoaderData();
 
   return (

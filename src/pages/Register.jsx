@@ -150,20 +150,6 @@ const Register = () => {
           </motion.button>
         </form>
 
-        <div className="my-5 flex items-center gap-3">
-          <div className="flex-1 h-[1px] bg-white/30" />
-          <span className="text-white/70 text-sm">OR</span>
-          <div className="flex-1 h-[1px] bg-white/30" />
-        </div>
-
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="w-full flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 py-2 rounded-lg text-white font-semibold transition text-xs md:text-lg"
-        >
-          <FaGoogle /> Continue with Google
-        </motion.button>
-
         <p className="text-center mt-5  text-white/80 text-xs md:text-lg">
           Already have an account?{" "}
           <Link
