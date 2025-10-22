@@ -1,9 +1,21 @@
-import React, { useState } from "react";
-import { NavLink, Link } from "react-router";
+import React, { use, useState } from "react";
+import { NavLink, Link, useNavigate } from "react-router";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
+  const { user, logOutUser } = use(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
-  const user = null; // replace with your auth logic (e.g., Firebase user)
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOutUser()
+      .then(() => {
+        navigate("/login");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
 
   const links = (
     <>
@@ -67,6 +79,7 @@ const Navbar = () => {
             >
               Login
             </Link>
+
             <Link
               to="/register"
               className="btn bg-[#ffd166] hover:bg-[#ffca3a] border-0 text-black"
@@ -75,15 +88,23 @@ const Navbar = () => {
             </Link>
           </>
         ) : (
-          <Link to="/profile">
-            <img
-              src={
-                user.photoURL || "https://i.ibb.co/2nYVQbR/default-avatar.png"
-              }
-              alt="Profile"
-              className="w-10 h-10 rounded-full border-2 border-[#ffd166] hover:scale-105 transition"
-            />
-          </Link>
+          <>
+            <Link to="/profile">
+              <img
+                src={
+                  user.photoURL || "https://i.ibb.co/2nYVQbR/default-avatar.png"
+                }
+                alt="Profile"
+                className="w-10 h-10 rounded-full border-2 border-[#ffd166] hover:scale-105 transition"
+              />
+            </Link>
+            <button
+              onClick={handleLogOut}
+              className="btn bg-[#ffd166] hover:bg-[#ffca3a] border-0 text-black"
+            >
+              Log Out
+            </button>
+          </>
         )}
       </div>
 
@@ -134,16 +155,24 @@ const Navbar = () => {
                   </Link>
                 </>
               ) : (
-                <Link to="/profile" onClick={() => setIsOpen(false)}>
-                  <img
-                    src={
-                      user.photoURL ||
-                      "https://i.ibb.co/2nYVQbR/default-avatar.png"
-                    }
-                    alt="Profile"
-                    className="w-8 h-8 rounded-full border-2 border-[#ffd166]"
-                  />
-                </Link>
+                <>
+                  <Link to="/profile" onClick={() => setIsOpen(false)}>
+                    <img
+                      src={
+                        user.photoURL ||
+                        "https://i.ibb.co/2nYVQbR/default-avatar.png"
+                      }
+                      alt="Profile"
+                      className="w-8 h-8 rounded-full border-2 border-[#ffd166] mx-auto"
+                    />
+                  </Link>
+                  <button
+                    onClick={handleLogOut}
+                    className="btn bg-[#ffd166] hover:bg-[#ffca3a] border-0 text-black"
+                  >
+                    Log Out
+                  </button>
+                </>
               )}
             </ul>
           )}

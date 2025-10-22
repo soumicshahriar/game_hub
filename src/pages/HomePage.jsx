@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import Banner from "../components/Banner";
 import PopularGames from "../components/PopularGames";
 import Newsletter from "../components/Newsletter";
+import { AuthContext } from "../context/AuthContext";
 
 const HomePage = () => {
+  const { user } = use(AuthContext);
+  console.log(user);
   const [games, setGames] = useState([]);
 
   useEffect(() => {

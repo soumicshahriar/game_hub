@@ -1,10 +1,36 @@
 import { motion } from "motion/react";
-import { Link } from "react-router";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router";
+import { use, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
+  const { logInUser } = use(AuthContext);
   const [showPass, setShowPass] = useState(false);
+  const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
+
+  //   handle login
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    // reset error
+    setError("");
+    logInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        // console.log(user);
+        navigate("/");
+      })
+      .catch(() => {
+        setError("Please provide your valid email and password");
+      });
+    console.log({ email, password });
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen  relative overflow-hidden">
@@ -28,11 +54,12 @@ const Login = () => {
           Login
         </h2>
 
-        <form className="space-y-5">
+        <form onSubmit={handleLogIn} className="space-y-5">
           <div>
             <label className="block text-white/90 text-sm mb-1">Email</label>
             <input
               type="email"
+              name="email"
               placeholder="you@example.com"
               required
               className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-xs md:text-lg"
@@ -43,6 +70,7 @@ const Login = () => {
             <label className="block text-white/90 text-sm mb-1">Password</label>
             <input
               type={showPass ? "text" : "password"}
+              name="password"
               placeholder="••••••••"
               required
               className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-xs md:text-lg"
@@ -88,6 +116,9 @@ const Login = () => {
             Register
           </Link>
         </p>
+
+        {/* show error */}
+        <p className="text-center text-red-400">{error}</p>
       </motion.div>
     </div>
   );

@@ -1,23 +1,55 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { useState } from "react";
+import { use, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../context/AuthContext";
 
 const Register = () => {
+  const { registerUser } = use(AuthContext);
   const [showPass, setShowPass] = useState(false);
   const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const [err, setErr] = useState("");
+
+  // handle submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    // clear the success message
+    setSuccess("");
+    setError("");
+
+    registerUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setSuccess("User Created Successfully");
+        form.reset();
+        setPassword("");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+
+    console.log({ name, photo, email, password });
+  };
 
   const validatePassword = (value) => {
     setPassword(value);
     if (!/[A-Z]/.test(value)) {
-      setError("Must contain at least one uppercase letter.");
+      setErr("Must contain at least one uppercase letter.");
     } else if (!/[a-z]/.test(value)) {
-      setError("Must contain at least one lowercase letter.");
+      setErr("Must contain at least one lowercase letter.");
     } else if (value.length < 6) {
-      setError("Must be at least 6 characters long.");
+      setErr("Must be at least 6 characters long.");
     } else {
-      setError("");
+      setErr("");
     }
   };
 
@@ -44,7 +76,7 @@ const Register = () => {
           Create Account
         </h2>
 
-        <form className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-white/90 text-sm mb-1">
               Full Name
@@ -52,6 +84,7 @@ const Register = () => {
             <input
               type="text"
               placeholder="John Doe"
+              name="name"
               required
               className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-xs md:text-lg"
             />
@@ -61,6 +94,7 @@ const Register = () => {
             <label className="block text-white/90 text-sm mb-1">Email</label>
             <input
               type="email"
+              name="email"
               placeholder="you@example.com"
               required
               className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-xs md:text-lg"
@@ -73,6 +107,7 @@ const Register = () => {
             </label>
             <input
               type="text"
+              name="photoURL"
               placeholder="https://yourphoto.com/photo.jpg"
               className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-xs md:text-lg"
             />
@@ -82,6 +117,7 @@ const Register = () => {
             <label className="block text-white/90 text-sm mb-1">Password</label>
             <input
               type={showPass ? "text" : "password"}
+              name="password"
               value={password}
               onChange={(e) => validatePassword(e.target.value)}
               placeholder="••••••••"
@@ -91,21 +127,21 @@ const Register = () => {
             <button
               type="button"
               onClick={() => setShowPass(!showPass)}
-              className="absolute right-3 top-8 text-white/70"
+              className="absolute right-3 top-10 text-white/70"
             >
               {showPass ? <FaEyeSlash /> : <FaEye />}
             </button>
-            {error && (
-              <p className="text-red-400 text-xs mt-1 font-medium">{error}</p>
+            {err && (
+              <p className="text-red-400 text-xs mt-1 font-medium">{err}</p>
             )}
           </div>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            disabled={!!error}
+            disabled={!!err}
             className={`w-full py-2 rounded-lg font-semibold shadow-lg transition ${
-              error
+              err
                 ? "bg-gray-500 cursor-not-allowed"
                 : "bg-gradient-to-r from-teal-400 to-cyan-500 text-white hover:opacity-90 text-xs md:text-lg"
             }`}
@@ -128,7 +164,7 @@ const Register = () => {
           <FaGoogle /> Continue with Google
         </motion.button>
 
-        <p className="text-center mt-5 text-sm text-white/80 text-xs md:text-lg">
+        <p className="text-center mt-5  text-white/80 text-xs md:text-lg">
           Already have an account?{" "}
           <Link
             to="/login"
@@ -136,6 +172,10 @@ const Register = () => {
           >
             Login
           </Link>
+        </p>
+
+        <p className="text-center text-teal-300">
+          {success ? success : <p className="text-red-400">{error}</p>}
         </p>
       </motion.div>
     </div>
