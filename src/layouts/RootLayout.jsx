@@ -1,12 +1,15 @@
 import { Outlet } from "react-router";
 import Navbar from "../sharedPages/Navbar";
 import ScrollToTop from "../routes/ScrollToTop";
+import { use } from "react";
+import { AuthContext } from "../context/AuthContext";
+import MotionLoader from "../sharedPages/MotionLoader";
 
 const RootLayout = () => {
-  // const { loading } = use(AuthContext);
-  // if (loading) {
-  //   return <MotionLoader></MotionLoader>;
-  // }
+  const { loading } = use(AuthContext);
+  if (loading) {
+    return <MotionLoader></MotionLoader>;
+  }
 
   return (
     <>

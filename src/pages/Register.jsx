@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { use, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
+import { sendEmailVerification } from "firebase/auth";
 
 const Register = () => {
   const { registerUser } = use(AuthContext);
@@ -28,10 +29,13 @@ const Register = () => {
     registerUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         setSuccess("User Created Successfully");
         form.reset();
         setPassword("");
+        sendEmailVerification(user).then(() => {
+          alert("Please Log in to your email and verify your email address");
+        });
       })
       .catch((error) => {
         setError(error.message);

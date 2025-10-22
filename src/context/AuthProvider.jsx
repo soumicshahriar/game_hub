@@ -42,12 +42,26 @@ const AuthProvider = ({ children }) => {
   };
 
   //   update user info
-  const updateUserInfo = (name, photoURL) => {
+  const updateUserInfo = async (name, photoURL) => {
     setLoading(true);
-    return updateProfile(user, {
-      displayName: name,
-      photoURL,
-    }).then(() => setUser({ ...user, displayName: name, photoURL }));
+    try {
+      // Always update the real Firebase user
+      await updateProfile(auth.currentUser, {
+        displayName: name,
+        photoURL,
+      });
+
+      // Reload the current user to sync data with Firebase
+      await auth.currentUser.reload();
+
+      // Update context with the actual Firebase user (not a shallow copy)
+      setUser(auth.currentUser);
+
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      throw error;
+    }
   };
 
   // reset password
@@ -69,6 +83,7 @@ const AuthProvider = ({ children }) => {
   const userInfo = {
     user,
     loading,
+    setLoading,
     registerUser,
     logInUser,
     googleLogInUser,

@@ -10,23 +10,24 @@ import {
 } from "../motion/updateInfo";
 
 const UpdateInfo = () => {
-  const { user, updateUserInfo } = useContext(AuthContext);
+  const { user, updateUserInfo, loading, setLoading } = useContext(AuthContext);
   const [name, setName] = useState(user?.displayName || "");
   const [photoURL, setPhotoURL] = useState(user?.photoURL || "");
-  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
-  const handleUpdate = async (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      await updateUserInfo(name, photoURL);
-      alert("Profile updated successfully!");
-      navigate("/my-profile");
-    } catch (error) {
-      alert(error.message);
-    }
-    setLoading(false);
+    updateUserInfo(name, photoURL)
+      .then(() => {
+        // console.log(result.user);
+        alert("Profile updated successfully!");
+        setLoading(false);
+        navigate("/my-profile");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
   return (

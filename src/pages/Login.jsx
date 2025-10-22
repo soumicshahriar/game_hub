@@ -25,8 +25,12 @@ const Login = () => {
     // reset error
     setError("");
     logInUser(email, password)
-      .then(() => {
-        // const user = result.user;
+      .then((result) => {
+        const user = result.user;
+        if (!user.emailVerified) {
+          alert("Please verify your email first");
+          return;
+        }
         // console.log(user);
 
         navigate(from, { replace: true });
@@ -51,7 +55,6 @@ const Login = () => {
   const handleForgetPassword = () => {
     const email = emailRef.current.value;
     navigate("/forget-password", { state: { email } });
-    
   };
 
   return (
@@ -101,7 +104,7 @@ const Login = () => {
             <button
               type="button"
               onClick={() => setShowPass(!showPass)}
-              className="absolute right-3 top-10 text-white/70"
+              className="absolute right-3 top-8 md:top-10 text-white/70"
             >
               {showPass ? <FaEyeSlash /> : <FaEye />}
             </button>
