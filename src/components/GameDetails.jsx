@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { motion } from "framer-motion";
 
 const GameDetails = () => {
   const { id } = useParams();
@@ -18,7 +19,12 @@ const GameDetails = () => {
     return <p className="text-center mt-20">Loading game details...</p>;
 
   return (
-    <div className="max-w-4xl mx-auto my-10 p-6 bg-[#004953] text-white rounded-lg shadow-lg">
+    <motion.div
+      className="max-w-4xl mx-auto my-10 p-6 bg-[#004953] text-white rounded-lg shadow-lg"
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+    >
       <img
         src={game.coverPhoto}
         alt={game.title}
@@ -41,7 +47,7 @@ const GameDetails = () => {
       >
         Install Game
       </a>
-    </div>
+    </motion.div>
   );
 };
 

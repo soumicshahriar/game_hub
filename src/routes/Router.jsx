@@ -4,6 +4,8 @@ import HomePage from "../pages/HomePage";
 import GameDetails from "../components/GameDetails";
 import Games from "../components/Games";
 import Recommended from "../components/Recommended";
+import Register from "../pages/Register";
+import Login from "../pages/Login";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ export const router = createBrowserRouter([
         path: "/recommended-games",
         Component: Recommended,
         loader: () => fetch("/game.json"),
+      },
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/register",
+        Component: Register,
       },
     ],
   },

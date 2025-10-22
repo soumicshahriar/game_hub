@@ -1,20 +1,36 @@
-import { IoGameController } from "react-icons/io5";
 import GameCard from "./GameCard";
 import { useLoaderData } from "react-router";
+import { motion } from "motion/react";
+import { cardVariants, containerVariants } from "../motion/gamesMotion";
 
 const Games = () => {
   const games = useLoaderData();
 
   return (
-    <div className="mt-20">
-      <h2 className="text-xl lg:text-3xl font-bold  mb-4 text-center">
+    <div className="mt-20 min-h-screen">
+      <h2 className="text-xl lg:text-3xl font-bold mb-8 text-center">
         🎮 All <span className="text-[#ffd166]">Games</span>
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+      {/* Smooth staggered animation for all cards */}
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 lg:px-10"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+      >
         {games.map((game) => (
-          <GameCard key={game.id} game={game} />
+          <motion.div
+            key={game.id}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.2 }}
+          >
+            <GameCard game={game} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
