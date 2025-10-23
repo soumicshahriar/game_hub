@@ -32,6 +32,7 @@ const AuthProvider = ({ children }) => {
 
   //   google log In
   const googleLogInUser = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
@@ -45,16 +46,13 @@ const AuthProvider = ({ children }) => {
   const updateUserInfo = async (name, photoURL) => {
     setLoading(true);
     try {
-      // Always update the real Firebase user
       await updateProfile(auth.currentUser, {
         displayName: name,
         photoURL,
       });
 
-      // Reload the current user to sync data with Firebase
       await auth.currentUser.reload();
 
-      // Update context with the actual Firebase user (not a shallow copy)
       setUser(auth.currentUser);
 
       setLoading(false);
@@ -71,12 +69,16 @@ const AuthProvider = ({ children }) => {
   };
 
   //   set observer for current user
+
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
       setLoading(false);
     });
-    return () => unSubscribe();
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   //   user info

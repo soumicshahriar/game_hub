@@ -67,7 +67,6 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Right: NavLinks + Login/Register/Profile */}
       <div className="navbar-end hidden lg:flex items-center gap-5">
         <ul className="menu menu-horizontal px-1 space-x-2">{links}</ul>
 

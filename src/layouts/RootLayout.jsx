@@ -7,11 +7,6 @@ import MotionLoader from "../sharedPages/MotionLoader";
 import Footer from "../sharedPages/Footer";
 
 const RootLayout = () => {
-  const { loading } = use(AuthContext);
-  if (loading) {
-    return <MotionLoader></MotionLoader>;
-  }
-
   return (
     <>
       <ScrollToTop />

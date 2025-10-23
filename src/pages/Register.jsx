@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { use, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
@@ -12,6 +12,7 @@ const Register = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const [err, setErr] = useState("");
+  const navigate = useNavigate();
 
   // handle submit
   const handleSubmit = (e) => {
@@ -35,6 +36,7 @@ const Register = () => {
         setPassword("");
         sendEmailVerification(user).then(() => {
           alert("Please Log in to your email and verify your email address");
+          navigate("/login");
         });
       })
       .catch((error) => {
@@ -131,7 +133,7 @@ const Register = () => {
             <button
               type="button"
               onClick={() => setShowPass(!showPass)}
-              className="absolute right-3 top-10 text-white/70"
+              className="absolute right-3  top-8 md:top-10 text-white/70"
             >
               {showPass ? <FaEyeSlash /> : <FaEye />}
             </button>

@@ -1,11 +1,11 @@
 import { motion } from "motion/react";
 import { Link, useLocation, useNavigate } from "react-router";
-import { use, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
-  const { logInUser, googleLogInUser } = use(AuthContext);
+  const { logInUser, googleLogInUser } = useContext(AuthContext); // useContext!
   const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState(null);
 
@@ -15,50 +15,56 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  //   handle login
+  // handle login
   const handleLogIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    // reset error
     setError("");
+    // start loader
+
     logInUser(email, password)
       .then((result) => {
         const user = result.user;
         if (!user.emailVerified) {
           alert("Please verify your email first");
+
           return;
         }
-        // console.log(user);
 
         navigate(from, { replace: true });
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error(err);
         setError("Please provide your valid email and password");
       });
-    console.log({ email, password });
   };
 
-  //   handleGoogleLogIn
+  // handle Google login
   const handleGoogleLogIn = () => {
+    setError("");
+
     googleLogInUser()
       .then(() => {
         navigate(from, { replace: true });
       })
-      .catch((error) => {
-        setError(error);
+      .catch((err) => {
+        console.error(err);
+        setError("Google login failed");
       });
   };
 
+  // forget password
   const handleForgetPassword = () => {
     const email = emailRef.current.value;
     navigate("/forget-password", { state: { email } });
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen  relative overflow-hidden">
+    <div className="flex items-center justify-center min-h-screen relative overflow-hidden">
+      {/* background motion */}
       <motion.div
         className="absolute inset-0 -z-10"
         initial={{ opacity: 0 }}
@@ -75,7 +81,7 @@ const Login = () => {
         transition={{ duration: 0.7 }}
         className="bg-white/10 backdrop-blur-2xl border border-white/20 p-8 rounded-3xl shadow-2xl w-full max-w-md"
       >
-        <h2 className=" text-xl lg:text-4xl font-extrabold text-center mb-6 text-white drop-shadow">
+        <h2 className="text-xl lg:text-4xl font-extrabold text-center mb-6 text-white drop-shadow">
           Login
         </h2>
 
@@ -113,7 +119,7 @@ const Login = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full bg-linear-to-r  from-teal-400 to-cyan-500 py-2 rounded-lg font-semibold text-white shadow-lg hover:opacity-90 transition text-xs md:text-lg"
+            className="w-full bg-linear-to-r from-teal-400 to-cyan-500 py-2 rounded-lg font-semibold text-white shadow-lg hover:opacity-90 transition text-xs md:text-lg"
           >
             Login
           </motion.button>
@@ -125,7 +131,6 @@ const Login = () => {
           <div className="flex-1 h-[1px] bg-white/30" />
         </div>
 
-        {/* forget Password */}
         <div className="my-5 text-center text-teal-300">
           <button
             onClick={handleForgetPassword}
@@ -154,8 +159,7 @@ const Login = () => {
           </Link>
         </p>
 
-        {/* show error */}
-        <p className="text-center text-red-400">{error}</p>
+        <p className="text-center text-red-400 mt-2">{error}</p>
       </motion.div>
     </div>
   );

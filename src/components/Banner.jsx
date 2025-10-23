@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
@@ -8,9 +9,19 @@ const Banner = ({ games }) => {
   return (
     <div className="my-6">
       <Swiper
-        pagination={{ type: "fraction" }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        pagination={true}
+        modules={[EffectCoverflow, Pagination]}
         className="rounded-xl overflow-hidden"
       >
         {games.slice(0, 3).map((game) => (
