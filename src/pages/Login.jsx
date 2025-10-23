@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { useContext, useRef, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { logInUser, googleLogInUser } = useContext(AuthContext); // useContext!
@@ -29,7 +30,18 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         if (!user.emailVerified) {
-          alert("Please verify your email first");
+          toast.info(
+            "Please log in to your email and verify your email address",
+            {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              theme: "colored",
+            }
+          );
 
           return;
         }

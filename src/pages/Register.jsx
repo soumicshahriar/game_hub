@@ -4,6 +4,7 @@ import { use, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
 import { sendEmailVerification } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const { registerUser } = use(AuthContext);
@@ -35,7 +36,18 @@ const Register = () => {
         form.reset();
         setPassword("");
         sendEmailVerification(user).then(() => {
-          alert("Please Log in to your email and verify your email address");
+          toast.info(
+            "Please log in to your email and verify your email address",
+            {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              theme: "colored",
+            }
+          );
           navigate("/login");
         });
       })
