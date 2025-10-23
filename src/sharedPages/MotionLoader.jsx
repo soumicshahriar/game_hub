@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 const MotionLoader = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#001f25] to-[#003c47] relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-linear-to-b from-[#001f25] to-[#003c47] relative overflow-hidden">
       {/* Animated glowing circles in the background */}
       <motion.div
         className="absolute top-20 left-10 w-72 h-72 bg-teal-400/20 rounded-full blur-3xl"

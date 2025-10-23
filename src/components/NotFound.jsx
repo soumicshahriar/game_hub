@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const NotFound = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-gradient-to-b from-[#001f25] to-[#003c47] text-white">
+    <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-linear-to-b from-[#001f25] to-[#003c47] text-white">
       {/* Animated glowing background */}
       <motion.div
         className="absolute top-20 left-10 w-72 h-72 bg-teal-400/20 rounded-full blur-3xl"
@@ -35,12 +35,11 @@ const NotFound = () => {
         initial={{ opacity: 0, y: -50, scale: 0.8 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-[8rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-500 drop-shadow-lg"
+        className="text-[8rem] font-extrabold text-transparent bg-clip-text bg-linear-to-r from-teal-400 to-cyan-500 drop-shadow-lg"
       >
         404
       </motion.h1>
 
-      {/* Subtext */}
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -58,13 +57,12 @@ const NotFound = () => {
       >
         <Link
           to="/"
-          className="px-6 py-3 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-full font-semibold hover:opacity-90 shadow-lg transition"
+          className="px-6 py-3 bg-linear-to-r from-teal-400 to-cyan-500 rounded-full font-semibold hover:opacity-90 shadow-lg transition"
         >
           Go Back Home
         </Link>
       </motion.div>
 
-      {/* Subtle floating animation for the whole content */}
       <motion.div
         animate={{
           y: [0, -10, 0],

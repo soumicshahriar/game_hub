@@ -1,7 +1,6 @@
 import { use } from "react";
 import { useLocation } from "react-router";
 import { AuthContext } from "../context/AuthContext";
-import { auth } from "../firebase/firebase.init";
 
 const ForgetPassword = () => {
   const { resetPassword } = use(AuthContext);
@@ -17,7 +16,6 @@ const ForgetPassword = () => {
       .catch((error) => {
         alert(error);
       });
-    // Redirect to Gmail
   };
 
   return (

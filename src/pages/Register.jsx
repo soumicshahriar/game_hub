@@ -147,7 +147,7 @@ const Register = () => {
             className={`w-full py-2 rounded-lg font-semibold shadow-lg transition ${
               err
                 ? "bg-gray-500 cursor-not-allowed"
-                : "bg-gradient-to-r from-teal-400 to-cyan-500 text-white hover:opacity-90 text-xs md:text-lg"
+                : "bg-linear-to-r from-teal-400 to-cyan-500 text-white hover:opacity-90 text-xs md:text-lg"
             }`}
           >
             Register

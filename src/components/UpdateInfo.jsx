@@ -2,7 +2,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {
   buttonVariants,
   containerVariants,
@@ -20,7 +20,6 @@ const UpdateInfo = () => {
     e.preventDefault();
     updateUserInfo(name, photoURL)
       .then(() => {
-        // console.log(result.user);
         alert("Profile updated successfully!");
         setLoading(false);
         navigate("/my-profile");
@@ -32,7 +31,7 @@ const UpdateInfo = () => {
 
   return (
     <motion.div
-      className="max-w-md mx-auto mt-10 p-8 bg-gradient-to-br from-[#076d7b] to-[#004953] text-white rounded-xl shadow-xl"
+      className="max-w-md mx-auto mt-10 p-8 bg-linear-to-br from-[#076d7b] to-[#004953] text-white rounded-xl shadow-xl"
       variants={containerVariants}
       initial="hidden"
       animate="visible"

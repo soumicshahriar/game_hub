@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const GameDetails = () => {
   const { id } = useParams();

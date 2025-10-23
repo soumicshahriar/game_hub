@@ -113,7 +113,7 @@ const Login = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full bg-gradient-to-r  from-teal-400 to-cyan-500 py-2 rounded-lg font-semibold text-white shadow-lg hover:opacity-90 transition text-xs md:text-lg"
+            className="w-full bg-linear-to-r  from-teal-400 to-cyan-500 py-2 rounded-lg font-semibold text-white shadow-lg hover:opacity-90 transition text-xs md:text-lg"
           >
             Login
           </motion.button>
