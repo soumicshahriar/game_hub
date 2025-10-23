@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import MotionLoader from "../sharedPages/MotionLoader";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -32,12 +33,7 @@ const Newsletter = () => {
       .catch((err) => console.error("Error loading game data:", err));
   }, []);
 
-  if (loading)
-    return (
-      <div className="flex justify-center items-center h-screen text-[#ffd166] font-semibold">
-        Loading newsletter...
-      </div>
-    );
+  if (loading) return <MotionLoader></MotionLoader>;
 
   if (!game) return null;
 

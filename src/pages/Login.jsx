@@ -6,7 +6,7 @@ import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { logInUser, googleLogInUser } = useContext(AuthContext); // useContext!
+  const { logInUser, googleLogInUser, logOutUser } = useContext(AuthContext);
   const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState(null);
 
@@ -42,7 +42,7 @@ const Login = () => {
               theme: "colored",
             }
           );
-
+          logOutUser(() => {}).catch(() => {});
           return;
         }
 
@@ -106,7 +106,7 @@ const Login = () => {
               ref={emailRef}
               placeholder="you@example.com"
               required
-              className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-xs md:text-lg"
+              className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-base md:text-lg"
             />
           </div>
 
@@ -117,7 +117,7 @@ const Login = () => {
               name="password"
               placeholder="••••••••"
               required
-              className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-xs md:text-lg"
+              className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-base md:text-lg"
             />
             <button
               type="button"
@@ -131,7 +131,7 @@ const Login = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full bg-linear-to-r from-teal-400 to-cyan-500 py-2 rounded-lg font-semibold text-white shadow-lg hover:opacity-90 transition text-xs md:text-lg"
+            className="w-full bg-linear-to-r from-teal-400 to-cyan-500 py-2 rounded-lg font-semibold text-white shadow-lg hover:opacity-90 transition text-base md:text-lg"
           >
             Login
           </motion.button>
@@ -155,13 +155,13 @@ const Login = () => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="w-full flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 py-2 rounded-lg text-white font-semibold transition text-xs md:text-lg"
+          className="w-full flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 py-2 rounded-lg text-white font-semibold transition text-base md:text-lg"
           onClick={handleGoogleLogIn}
         >
           <FaGoogle /> Continue with Google
         </motion.button>
 
-        <p className="text-center mt-5 text-xs md:text-lg text-white/80">
+        <p className="text-center mt-5 text-base md:text-lg text-white/80">
           Don’t have an account?{" "}
           <Link
             to="/register"

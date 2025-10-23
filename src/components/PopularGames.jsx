@@ -21,31 +21,7 @@ const PopularGames = ({ games }) => {
           initial="hidden"
           whileInView="show"
         >
-          {popularGames.slice(0, 3).map((game) => (
-            <motion.div
-              key={game.id}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="show"
-            >
-              <GameCard game={game} />
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* All Games Section */}
-      <section>
-        <h2 className="text-3xl font-bold mb-4 text-center">
-          🎮 All <span className="text-[#ffd166]">Games</span>
-        </h2>
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-        >
-          {games.map((game) => (
+          {popularGames.slice(0, 14).map((game) => (
             <motion.div
               key={game.id}
               variants={cardVariants}

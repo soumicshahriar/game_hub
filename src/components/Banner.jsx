@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, EffectCoverflow } from "swiper/modules";
+import { Pagination, EffectCoverflow, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -21,10 +21,16 @@ const Banner = ({ games }) => {
           slideShadows: true,
         }}
         pagination={true}
-        modules={[EffectCoverflow, Pagination]}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        speed={1500}
+        loop={true}
+        modules={[EffectCoverflow, Pagination, Autoplay]}
         className="rounded-xl overflow-hidden"
       >
-        {games.slice(0, 3).map((game) => (
+        {games.slice(0, 10).map((game) => (
           <SwiperSlide key={game.id}>
             <div
               className="relative h-64 md:h-96 bg-cover bg-center"

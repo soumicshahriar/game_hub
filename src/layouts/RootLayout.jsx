@@ -1,9 +1,6 @@
 import { Outlet } from "react-router";
 import Navbar from "../sharedPages/Navbar";
 import ScrollToTop from "../routes/ScrollToTop";
-import { use } from "react";
-import { AuthContext } from "../context/AuthContext";
-import MotionLoader from "../sharedPages/MotionLoader";
 import Footer from "../sharedPages/Footer";
 
 const RootLayout = () => {

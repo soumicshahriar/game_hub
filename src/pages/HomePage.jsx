@@ -7,8 +7,7 @@ import useTitle from "../utils/useTitle";
 
 const HomePage = () => {
   useTitle("Home");
-  const { user } = use(AuthContext);
-  console.log(user);
+
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -16,8 +15,6 @@ const HomePage = () => {
       .then((res) => res.json())
       .then((data) => setGames(data));
   }, []);
-
-  console.log(games);
 
   return (
     <div>

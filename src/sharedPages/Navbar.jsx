@@ -129,52 +129,54 @@ const Navbar = () => {
               />
             </svg>
           </button>
-          {isOpen && (
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-3 shadow bg-[#004953] rounded-box w-52 space-y-2"
-            >
-              {links}
-              <div className="border-t border-[#06636e] my-2"></div>
-              {!user ? (
-                <>
-                  <Link
-                    to="/login"
-                    onClick={() => setIsOpen(false)}
-                    className="btn btn-sm bg-[#036e7a] border-0 text-white w-full"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/register"
-                    onClick={() => setIsOpen(false)}
-                    className="btn btn-sm bg-[#ffd166] border-0 text-black w-full"
-                  >
-                    Register
-                  </Link>
-                </>
-              ) : (
-                <>
-                  <Link to="/my-profile" onClick={() => setIsOpen(false)}>
-                    <img
-                      src={
-                        user.photoURL ||
-                        "https://i.ibb.co/2nYVQbR/default-avatar.png"
-                      }
-                      alt="Profile"
-                      className="w-12 h-12 rounded-full border-2 border-[#ffd166] mx-auto"
-                    />
-                  </Link>
-                  <button
-                    onClick={handleLogOut}
-                    className="btn bg-[#ffd166] hover:bg-[#ffca3a] border-0 text-black"
-                  >
-                    Log Out
-                  </button>
-                </>
-              )}
-            </ul>
-          )}
+          <ul
+            tabIndex={0}
+            className={`menu menu-sm dropdown-content mt-3 p-3 shadow bg-[#004953] rounded-box w-52 space-y-2 transition-all duration-300 ${
+              isOpen
+                ? "block opacity-100 scale-100"
+                : "hidden opacity-0 scale-95"
+            }`}
+          >
+            {links}
+            <div className="border-t border-[#06636e] my-2"></div>
+            {!user ? (
+              <>
+                <Link
+                  to="/login"
+                  onClick={() => setIsOpen(false)}
+                  className="btn btn-sm bg-[#036e7a] border-0 text-white w-full"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  onClick={() => setIsOpen(false)}
+                  className="btn btn-sm bg-[#ffd166] border-0 text-black w-full"
+                >
+                  Register
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/my-profile" onClick={() => setIsOpen(false)}>
+                  <img
+                    src={
+                      user.photoURL ||
+                      "https://i.ibb.co/2nYVQbR/default-avatar.png"
+                    }
+                    alt="Profile"
+                    className="w-12 h-12 rounded-full border-2 border-[#ffd166] mx-auto"
+                  />
+                </Link>
+                <button
+                  onClick={handleLogOut}
+                  className="btn bg-[#ffd166] hover:bg-[#ffca3a] border-0 text-black w-full"
+                >
+                  Log Out
+                </button>
+              </>
+            )}
+          </ul>
         </div>
       </div>
     </div>

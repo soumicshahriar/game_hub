@@ -7,7 +7,7 @@ import { sendEmailVerification } from "firebase/auth";
 import { toast } from "react-toastify";
 
 const Register = () => {
-  const { registerUser } = use(AuthContext);
+  const { registerUser, logOutUser } = use(AuthContext);
   const [showPass, setShowPass] = useState(false);
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState("");
@@ -19,8 +19,8 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
-    const photo = form.photoURL.value;
+    // const name = form.name.value;
+    // const photo = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
 
@@ -48,14 +48,13 @@ const Register = () => {
               theme: "colored",
             }
           );
+          logOutUser(() => {}).catch(() => {});
           navigate("/login");
         });
       })
       .catch((error) => {
         setError(error.message);
       });
-
-    console.log({ name, photo, email, password });
   };
 
   const validatePassword = (value) => {
@@ -104,7 +103,7 @@ const Register = () => {
               placeholder="John Doe"
               name="name"
               required
-              className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-xs md:text-lg"
+              className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-base md:text-lg"
             />
           </div>
 
@@ -115,7 +114,7 @@ const Register = () => {
               name="email"
               placeholder="you@example.com"
               required
-              className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-xs md:text-lg"
+              className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-base md:text-lg"
             />
           </div>
 
@@ -127,7 +126,7 @@ const Register = () => {
               type="text"
               name="photoURL"
               placeholder="https://yourphoto.com/photo.jpg"
-              className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-xs md:text-lg"
+              className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-base md:text-lg"
             />
           </div>
 
@@ -140,7 +139,7 @@ const Register = () => {
               onChange={(e) => validatePassword(e.target.value)}
               placeholder="••••••••"
               required
-              className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-xs md:text-lg"
+              className="w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 text-white outline-none placeholder-white/70 text-base md:text-lg"
             />
             <button
               type="button"
@@ -150,7 +149,7 @@ const Register = () => {
               {showPass ? <FaEyeSlash /> : <FaEye />}
             </button>
             {err && (
-              <p className="text-red-400 text-xs mt-1 font-medium">{err}</p>
+              <p className="text-red-400 text-base mt-1 font-medium">{err}</p>
             )}
           </div>
 
@@ -161,14 +160,14 @@ const Register = () => {
             className={`w-full py-2 rounded-lg font-semibold shadow-lg transition ${
               err
                 ? "bg-gray-500 cursor-not-allowed"
-                : "bg-linear-to-r from-teal-400 to-cyan-500 text-white hover:opacity-90 text-xs md:text-lg"
+                : "bg-linear-to-r from-teal-400 to-cyan-500 text-white hover:opacity-90 text-base md:text-lg"
             }`}
           >
             Register
           </motion.button>
         </form>
 
-        <p className="text-center mt-5  text-white/80 text-xs md:text-lg">
+        <p className="text-center mt-5  text-white/80 text-base md:text-lg">
           Already have an account?{" "}
           <Link
             to="/login"
