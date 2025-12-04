@@ -1,16 +1,27 @@
-# React + Vite
+# 🎮 GameHub - React Gaming Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully responsive **React-based gaming platform** where users can browse, search, and explore games. Features include animated game cards, ratings-based sorting, recommended and popular games sections, and integration with Firebase.  
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check out the live version of GameHub here:  
+[🎮 Live Demo](https://game-hub-6788b.web.app/)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Features
 
-## Expanding the ESLint configuration
+- **Browse All Games** – View all games with dynamic card layouts.  
+- **Recommended Games** – Automatically displays recommended games based on ratings.  
+- **Popular Games** – Highlight top-rated games with sorting options.  
+- **Sorting & Filtering** – Sort games by rating (High → Low / Low → High).  
+- **Search Functionality** – Filter games by title.  
+- **Responsive Design** – Works on all screen sizes (mobile, tablet, desktop).  
+- **Animations** – Smooth Framer Motion animations for card hover, click, and loading effects.  
+- **Install Button** – Quick access to download or play games.  
+- **Firebase Integration** – Backend support for dynamic game data and assets.  
+- **TailwindCSS & DaisyUI** – Clean and modern UI components.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+
