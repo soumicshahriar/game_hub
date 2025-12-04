@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { use } from "react";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { Link } from "react-router";
 
 const footerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -42,6 +43,24 @@ const Footer = () => {
           }}
         >
           © {year} GameHub — Built with ❤️ by Soumic Shahriar
+          <div>
+            <p>
+              <Link
+                className="text-white hover:text-yellow-300"
+                to={"/all-games"}
+              >
+                All Games
+              </Link>
+            </p>
+            <p>
+              <Link
+                className="text-white hover:text-yellow-300"
+                to={"/recommended-games"}
+              >
+                Recommended Games
+              </Link>
+            </p>
+          </div>
         </motion.p>
 
         {/* Social Icons */}
